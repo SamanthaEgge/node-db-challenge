@@ -7,12 +7,16 @@ exports.up = function(knex) {
         .unique()
         .notNullable();
       tbl.text('project_description');
+      tbl.boolean('project_completed')
+        .defaultTo(false)
     })
     .createTable('tasks', tbl => {
       tbl.increments();
       tbl.text('task_description')
         .notNullable();
       tbl.text('task_notes')
+      tbl.boolean('task_completed')
+        .defaultTo(false)
       tbl.integer('project')
         .unsigned()
         .notNullable()
@@ -32,6 +36,7 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
   return knex.schema
-    .dropTableIfExists('steps')
-    .dropTableIfExists('schemes');
+    .dropTableIfExists('projects')
+    .dropTableIfExists('tasks')
+    .dropTableIfExists('resources')
 };

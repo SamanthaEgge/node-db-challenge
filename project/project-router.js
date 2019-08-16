@@ -25,3 +25,5 @@ router.post('/', async (request, response) => {
     response.status(500).json({ message: 'Failed to add new project to the server' })
   }
 })
+
+module.exports = router
