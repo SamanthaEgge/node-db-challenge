@@ -1,9 +1,10 @@
 const server = require("./server.js");
 
-const port = 8000;
+const PORT = process.env.PORT || 5000;
+
 const greeting = "Hi, Samantha!";
-server.listen(port, () => {
+server.listen(PORT, () => {
   console.log(
-    `\n*** ${greeting} Server Running on http://localhost:${port} ***\n`
+    `\n*** ${greeting} Server Running on http://localhost:${PORT} ***\n`
   );
 });
