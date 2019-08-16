@@ -3,7 +3,7 @@ module.exports = {
     client: 'postgres',
     connection: {
       host: 'localhost',
-      database: 'webdb3',
+      database: 'webdbsprint',
       user:     "postgres",
       password: "Chaoticneu21"
     },

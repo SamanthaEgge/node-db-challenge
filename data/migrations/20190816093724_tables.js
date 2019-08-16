@@ -9,6 +9,9 @@ exports.up = function(knex) {
       tbl.text('project_description');
       tbl.boolean('project_completed')
         .defaultTo(false)
+      tbl.integer('resource_id')
+        .references('id')
+        .inTable('resources')
     })
     .createTable('tasks', tbl => {
       tbl.increments();
@@ -27,10 +30,10 @@ exports.up = function(knex) {
     })
     .createTable('resources', tbl => {
       tbl.increments();
-      tbl.text('resources_name')
+      tbl.text('resource_name')
         .notNullable()
         .unique()
-      tbl.text('resources_description')
+      tbl.text('resource_description')
     })
 };
 

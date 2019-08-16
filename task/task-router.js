@@ -26,4 +26,15 @@ router.post('/', async (request, response) => {
   }
 })
 
+router.get('/:id', async (request, response) => {
+  const id = request.params.id
+  try {
+    const task = await Tasks.findById(id)
+    response.json(task)
+  } catch (error) {
+    console.log(error)
+    response.status(500).json({ message: 'failed to retrieved task from server'})
+  }
+})
+
 module.exports = router
